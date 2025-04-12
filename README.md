@@ -1,6 +1,6 @@
 # Projeto de 1º Trimestre
 
-O repositório  segui contém uma pequena coleção de classes que realizam um jogo de interface de terminal.
+O repositório a seguir contém uma pequena coleção de classes que realizam um jogo de interface de terminal. Realizado para o parendizado na linguagem Java.
 
-O jogo não está em formato executável padrão do java (Java Archive)
-para gerar o jogo, compile as classes em uma IDE ou com o comando `javac` e rode a clase Game com o cmando `java`
+O jogo não está em formato executável padrão do java (Java Archive), portanto
+para gerar o jogo, compile todas as classes em uma IDE, ou com o comando `javac` e rode a clase 'Game' com o comando `java`
