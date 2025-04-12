@@ -1,5 +1,8 @@
 package app;
 import games.CacaPalavras.Field;
+
+import java.util.Objects;
+
 public class Words {
     Helper help = new Helper();
 
@@ -7,8 +10,8 @@ public class Words {
 
     }
     public Words(Field field){
-        this.addWordToField(field, wordChosen);
-        this.addWordToField(field, wordChosen2);
+        this.addWordToField(field, wordChosenArray[0]);
+        this.addWordToField(field, wordChosenArray[1]);
         field.printField(field);
 
     }
@@ -46,13 +49,17 @@ public class Words {
         return new String(chosenArray);
     }
 
-    //TODO: If the two words happen to land on the last index of the vertical axis of the matrix, it will overflow, you gotta fix that chief.
 
     private void addWordToField(Field board, String wordChosen){
         int xLocation = help.getRandomNumber(0, board.size);
         int yLocation = help.getRandomNumber(0, board.size - wordChosen.length()) ;
 
+        if (Objects.equals(wordChosenArray[0], wordChosenArray[1])){
+            wordChosenArray[0] = totalWordArray[help.getRandomNumber(0, totalWordArray.length)];
+        }
+        if (xLocation++ >= board.size) {xLocation = 0;}
         if (xLocation == lastLineUsed) {xLocation++;}
+
 
         for (int i = 0; i < wordChosen.length(); i++) {
             board.board[xLocation][yLocation + i] = wordChosen.charAt(i);
@@ -60,6 +67,7 @@ public class Words {
 
         this.lastLineUsed = xLocation;
     }
+
     public char giveHint(int index){
         return wordChosenArray[index].charAt(0);
     }
