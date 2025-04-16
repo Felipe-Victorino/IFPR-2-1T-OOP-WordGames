@@ -12,7 +12,7 @@ public class WordShuffle {
         Words word = new Words();
         String wordShuffled1 = word.shuffleWord(word.wordChosenArray[0]);
         System.out.println(wordShuffled1);
-        new Guess(wordShuffled1);
+        new Guess(word.wordChosenArray[0]);
         score++;
     }
 }
