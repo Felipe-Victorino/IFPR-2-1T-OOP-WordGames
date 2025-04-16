@@ -11,10 +11,17 @@ public class Guess {
         boolean guessValidity = false;
         while (!guessValidity) {
             String guess = this.UserGuess(this);
-            guessValidity = this.verifyGuess(word, guess);
+            guessValidity = this.verifyGuessField(word, guess);
         }
     }
 
+    public Guess(String wordChosen){
+        boolean guessValidity = false;
+        while (!guessValidity) {
+            String guess = this.UserGuess(this);
+            guessValidity = this.verifyGuessWord(wordChosen, guess);
+        }
+    }
 
     public String UserGuess(Guess guess) {
 
@@ -23,10 +30,25 @@ public class Guess {
 
     }
 
-    public boolean verifyGuess(Words word, String guess) {
+    public boolean verifyGuessWord(String word, String guess) {
+
+        if (guess.equals("tip")) {
+            this.showHintWord(word);
+            return false;
+        } else if (Objects.equals(guess, word)) {
+            System.out.println("CORRECT");
+            return true;
+        } else {
+            System.out.println("INCORRECT");
+            return false;
+        }
+
+    }
+
+    public boolean verifyGuessField(Words word, String guess) {
 
             if (guess.equals("tip")) {
-                this.showHint(word);
+                this.showHintField(word);
                 return false;
             } else if (Objects.equals(alreadyGuessed, guess)) {
                 System.out.println("ALREADY GUESSED");
@@ -42,7 +64,11 @@ public class Guess {
             }
 
     }
-    public void showHint(Words word){
+    public void showHintField(Words word){
         System.out.printf("The first letter of one of the words is: %S%n", word.giveHint(help.getRandomNumber(0,1)));
+    }
+
+    public void showHintWord(String word) {
+        System.out.printf("The first letter of one of the words is: %S%n", word.charAt(0));
     }
 }

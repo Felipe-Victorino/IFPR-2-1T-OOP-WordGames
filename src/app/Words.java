@@ -16,11 +16,10 @@ public class Words {
 
     }
     private final String[] totalWordArray = {
-            "AAAAAAAAAA",
             "perigee",
             "apogee",
             "xylophone",
-            "aerostatic",
+            "aero-static",
             "entropy",
             "radiophone",
             "portal",
