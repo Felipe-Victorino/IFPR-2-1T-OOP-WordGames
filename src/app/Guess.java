@@ -2,7 +2,7 @@ package app;
 import java.util.Objects;
 
 public class Guess {
-    static Helper help = new Helper();
+
     String userGuess;
     private String alreadyGuessed;
     private int correctGuess = 0;
@@ -24,14 +24,12 @@ public class Guess {
     }
 
     public String UserGuess(Guess guess) {
-
         System.out.print("Insert your guess: ");
-        return guess.userGuess = help.getUserInputString();
+        return guess.userGuess = new Helper().getUserInputString();
 
     }
 
     public boolean verifyGuessWord(String word, String guess) {
-
         if (guess.equals("tip")) {
             this.showHintWord(word);
             return false;
@@ -65,7 +63,7 @@ public class Guess {
 
     }
     public void showHintField(Words word){
-        System.out.printf("The first letter of one of the words is: %S%n", word.giveHint(help.getRandomNumber(0,1)));
+        System.out.printf("The first letter of one of the words is: %S%n", word.giveHint(new Helper().getRandomNumber(0,1)));
     }
 
     public void showHintWord(String word) {

@@ -10,7 +10,6 @@ public class WordSearch {
     }
 
     public void gameStart(){
-
         Field field = new Field();
         field.fillFieldWithNoise(field);
         Words word = new Words(field);

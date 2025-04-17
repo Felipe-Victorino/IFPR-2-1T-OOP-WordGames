@@ -8,20 +8,19 @@ public class Game {
     static int score = 0;
 
     public static void main(String[] args) {
-
         Game.gameLoop();
 
     }
+
     public static void gameLoop(){
 
-        Helper sc = new Helper();
         boolean loopState = true;
 
         while(loopState){
 
             Game.printMenu();
 
-            int choice = Integer.parseInt(sc.getUserInputString());
+            int choice = Integer.parseInt(new Helper().getUserInputString());
 
             switch (choice){
                 case 1:
@@ -40,10 +39,10 @@ public class Game {
             }
         }
     }
-    public static void printMenu(){
 
+    public static void printMenu(){
         System.out.println("======================");
-        System.out.printf("Score: %d%n", score);
+        System.out.printf("|| Score: %d ||%n", score);
         System.out.println("======================");
         System.out.println("Select game: ");
         System.out.println("1 - Word Search");

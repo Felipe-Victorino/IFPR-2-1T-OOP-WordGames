@@ -4,17 +4,18 @@ import games.CacaPalavras.Field;
 import java.util.Objects;
 
 public class Words {
-    Helper help = new Helper();
 
     public Words(){
 
     }
+
     public Words(Field field){
         this.addWordToField(field, wordChosenArray[0]);
         this.addWordToField(field, wordChosenArray[1]);
         field.printField(field);
 
     }
+
     private final String[] totalWordArray = {
             "perigee",
             "apogee",
@@ -25,11 +26,13 @@ public class Words {
             "portal",
             "diskette",
             "operator",
-            "magnetic"
+            "magnetic",
+            "scalpel",
+            "oregano"
     };
 
-    public String wordChosen = totalWordArray[help.getRandomNumber(0, totalWordArray.length)];
-    String wordChosen2 = totalWordArray[help.getRandomNumber(0, totalWordArray.length)];
+    public String wordChosen = totalWordArray[new Helper().getRandomNumber(0, totalWordArray.length)];
+    String wordChosen2 = totalWordArray[new Helper().getRandomNumber(0, totalWordArray.length)];
 
     public String[] wordChosenArray = {wordChosen, wordChosen2};
 
@@ -39,7 +42,7 @@ public class Words {
         char[] chosenArray = wordChosen.toCharArray();
 
         for (int i = 0; i < chosenArray.length; i++) {
-            int randomIndex = help.getRandomNumber(0, chosenArray.length);
+            int randomIndex = new Helper().getRandomNumber(0, chosenArray.length);
             char aux = chosenArray[i];
             chosenArray[i] = chosenArray[randomIndex];
             chosenArray[randomIndex] = aux;
@@ -50,11 +53,11 @@ public class Words {
 
 
     private void addWordToField(Field board, String wordChosen){
-        int xLocation = help.getRandomNumber(0, board.size);
-        int yLocation = help.getRandomNumber(0, board.size - wordChosen.length()) ;
+        int xLocation = new Helper().getRandomNumber(0, board.size);
+        int yLocation = new Helper().getRandomNumber(0, board.size - wordChosen.length()) ;
 
         if (Objects.equals(wordChosenArray[0], wordChosenArray[1])){
-            wordChosenArray[0] = totalWordArray[help.getRandomNumber(0, totalWordArray.length)];
+            wordChosenArray[0] = totalWordArray[new Helper().getRandomNumber(0, totalWordArray.length)];
         }
         if (xLocation++ >= board.size) {xLocation = 0;}
         if (xLocation == lastLineUsed) {xLocation++;}
