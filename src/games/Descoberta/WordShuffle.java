@@ -4,6 +4,7 @@ import app.Guess;
 public class WordShuffle {
 
     public int score;
+
     public WordShuffle(){
         this.startGame();
     }

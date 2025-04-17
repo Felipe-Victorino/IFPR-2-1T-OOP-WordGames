@@ -10,7 +10,7 @@ public class Guess {
     public Guess(Words word){
         boolean guessValidity = false;
         while (!guessValidity) {
-            String guess = this.UserGuess(this);
+            String guess = this.userGuess(this);
             guessValidity = this.verifyGuessField(word, guess);
         }
     }
@@ -18,17 +18,18 @@ public class Guess {
     public Guess(String wordChosen){
         boolean guessValidity = false;
         while (!guessValidity) {
-            String guess = this.UserGuess(this);
+            String guess = this.userGuess(this);
             guessValidity = this.verifyGuessWord(wordChosen, guess);
         }
     }
 
-    public String UserGuess(Guess guess) {
+    public String userGuess(Guess guess) {
         System.out.print("Insert your guess: ");
         return guess.userGuess = new Helper().getUserInputString();
 
     }
 
+    // TODO: Separar os métodos a seguir para outras classes, passando a verificação para as classes respectivas (WordSearch e WordShuffle)
     public boolean verifyGuessWord(String word, String guess) {
         if (guess.equals("tip")) {
             this.showHintWord(word);
