@@ -17,11 +17,12 @@ public class Words {
             "operator",
             "magnetic",
             "scalpel",
-            "oregano"
+            "oregano",
+            "rosemary"
     };
 
-    public String wordChosen = totalWordArray[new Helper().getRandomNumber(0, totalWordArray.length)];
-    String wordChosen2 = totalWordArray[new Helper().getRandomNumber(0, totalWordArray.length)];
+    public String wordChosen = totalWordArray[Helper.getRandomNumber(0, totalWordArray.length)];
+    String wordChosen2 = totalWordArray[Helper.getRandomNumber(0, totalWordArray.length)];
 
     public String[] wordChosenArray = {wordChosen, wordChosen2};
 
@@ -42,7 +43,7 @@ public class Words {
         char[] chosenArray = wordChosen.toCharArray();
 
         for (int i = 0; i < chosenArray.length; i++) {
-            int randomIndex = new Helper().getRandomNumber(0, chosenArray.length);
+            int randomIndex = Helper.getRandomNumber(0, chosenArray.length);
             char aux = chosenArray[i];
             chosenArray[i] = chosenArray[randomIndex];
             chosenArray[randomIndex] = aux;
@@ -53,11 +54,11 @@ public class Words {
 
 
     private void addWordToField(Field board, String wordChosen){
-        int xLocation = new Helper().getRandomNumber(0, board.getSize());
-        int yLocation = new Helper().getRandomNumber(0, board.getSize() - wordChosen.length()) ;
+        int xLocation = Helper.getRandomNumber(0, board.getSize());
+        int yLocation = Helper.getRandomNumber(0, board.getSize() - wordChosen.length()) ;
 
         if (Objects.equals(wordChosenArray[0], wordChosenArray[1])){
-            wordChosenArray[0] = totalWordArray[new Helper().getRandomNumber(0, totalWordArray.length)];
+            wordChosenArray[0] = totalWordArray[Helper.getRandomNumber(0, totalWordArray.length)];
         }
         if (xLocation++ >= board.getSize()) {xLocation = 0;}
         if (xLocation == lastLineUsed) {xLocation++;}

@@ -4,14 +4,14 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Helper {
-    Random rd = new Random();
-    Scanner sc = new Scanner(System.in);
+    static Random rd = new Random();
+    static Scanner sc = new Scanner(System.in);
 
-    public String getUserInputString(){
+    public static String getUserInputString(){
         return sc.nextLine();
     }
 
-    public int getRandomNumber(int numa, int numb){
+    public static int getRandomNumber(int numa, int numb){
         return rd.nextInt(numa, numb);
     }
 }

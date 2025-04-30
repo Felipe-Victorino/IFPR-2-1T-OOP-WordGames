@@ -51,7 +51,7 @@ public class WordSearch {
     }
 
     public void showHintField(Words word){
-        System.out.printf("The first letter of one of the words is: %S%n", word.giveHint(new Helper().getRandomNumber(0,1)));
+        System.out.printf("The first letter of one of the words is: %S%n", word.giveHint(Helper.getRandomNumber(0,1)));
     }
 
 

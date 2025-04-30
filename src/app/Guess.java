@@ -18,7 +18,7 @@ public class Guess {
 
     private String promptUserGuess() {
         System.out.print("Insert your guess: ");
-        return this.userGuess = new Helper().getUserInputString();
+        return this.userGuess = Helper.getUserInputString();
 
     }
 

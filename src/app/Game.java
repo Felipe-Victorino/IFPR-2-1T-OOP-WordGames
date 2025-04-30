@@ -21,7 +21,7 @@ public class Game {
 
             Game.printMenu();
             try {
-                choice = Integer.parseInt(new Helper().getUserInputString());
+                choice = Integer.parseInt(Helper.getUserInputString());
                 switch (choice){
                     case 1:
                         WordSearch search = new WordSearch();

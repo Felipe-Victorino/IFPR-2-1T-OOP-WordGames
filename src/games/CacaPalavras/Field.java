@@ -1,5 +1,6 @@
 package games.CacaPalavras;
-import app.Helper;
+import static app.Helper.getRandomNumber;
+
 public class Field {
 
     private final int size = 15;
@@ -21,7 +22,7 @@ public class Field {
         System.out.println("Generating Field...");
         for (int x = 0; x < board.size; x++) {
             for (int y = 0; y < board.size; y++) {
-                board.board[x][y] = (char) ('a' + new Helper().getRandomNumber(0,25));
+                board.board[x][y] = (char) ('a' + getRandomNumber(0,25));
             }
         }
     }
