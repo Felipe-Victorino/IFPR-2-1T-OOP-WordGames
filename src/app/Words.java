@@ -60,8 +60,6 @@ public class Words {
         if (Objects.equals(wordChosenArray[0], wordChosenArray[1])){
             wordChosenArray[0] = totalWordArray[Helper.getRandomNumber(0, totalWordArray.length)];
         }
-
-        if (xLocation++ >= board.getSize()) {xLocation = 0;}
         if (xLocation == lastLineUsed) {xLocation++;}
 
         char[][] tempBoard = board.getBoard();
@@ -70,14 +68,12 @@ public class Words {
             for (int i = 0; i < wordChosen.length(); i++) {
                 tempBoard[xLocation][yLocation + i] = wordChosen.charAt(i);
             }
-
         } catch (ArrayIndexOutOfBoundsException e) {
             xLocation = Helper.getRandomNumber(0, board.getSize());
+        } finally {
+            board.setBoard(tempBoard);
+            this.lastLineUsed = xLocation;
         }
-
-        board.setBoard(tempBoard);
-
-        this.lastLineUsed = xLocation;
     }
 
     public char giveHint(int index){

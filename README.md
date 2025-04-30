@@ -1,4 +1,6 @@
 # Projeto de 1º Trimestre
+## Coleção de jogos de Palavras
+Feito em Java 19, na IDE Intellij 2025 Pro.
 
 O repositório a seguir contém uma pequena coleção de classes que realizam um jogo de interface de terminal. Realizado para o parendizado na linguagem Java.
 
