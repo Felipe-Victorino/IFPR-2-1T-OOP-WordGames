@@ -5,31 +5,40 @@ import games.Descoberta.WordShuffle;
 
 public class Game {
 
-    static int score = 0;
+    private int score = 0;
     static int choice;
 
+    public void incrementScore(){
+        this.score++;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
     public static void main(String[] args) {
-        Game.gameLoop();
+        Game game = new Game();
+        game.gameLoop();
 
     }
 
-    public static void gameLoop(){
+    public void gameLoop(){
 
         boolean loopState = true;
 
         while(loopState){
 
-            Game.printMenu();
+            this.printMenu();
             try {
                 choice = Integer.parseInt(Helper.getUserInputString());
                 switch (choice){
                     case 1:
-                        WordSearch search = new WordSearch();
-                        score += search.score;
+                        new WordSearch();
+                        this.incrementScore();
                         break;
                     case 2:
-                        WordShuffle shuffle = new WordShuffle();
-                        score += shuffle.score;
+                        new WordShuffle();
+                        this.incrementScore();
                         break;
                     case 3:
                         loopState = false;
@@ -44,9 +53,9 @@ public class Game {
         }
     }
 
-    public static void printMenu(){
+    public void printMenu(){
         System.out.println("======================");
-        System.out.printf("|| Score: %d ||%n", score);
+        System.out.printf("|| Score: %d ||%n", this.getScore());
         System.out.println("======================");
         System.out.println("Select game: ");
         System.out.println("1 - Word Search");

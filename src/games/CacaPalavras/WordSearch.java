@@ -6,7 +6,6 @@ import app.Guess;
 
 public class WordSearch {
 
-    public int score;
     private String alreadyGuessed;
     private int correctGuess = 0;
 
@@ -23,7 +22,6 @@ public class WordSearch {
         field.fillFieldWithNoise(field);
         Words word = new Words(field);
         verifyGuess(word);
-        score++;
     }
 
     public void verifyGuess(Words word) {
