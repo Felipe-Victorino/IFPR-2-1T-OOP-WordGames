@@ -47,7 +47,7 @@ public class Game {
                         break;
                 }
             } catch (NumberFormatException e) {
-                System.out.printf(choice + " isn't a number, try again");
+                System.out.println("Whatever you typed isn't a number, try again");
             }
 
         }

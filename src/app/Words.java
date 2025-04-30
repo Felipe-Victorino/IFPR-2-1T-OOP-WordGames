@@ -21,10 +21,10 @@ public class Words {
             "rosemary"
     };
 
-    public String wordChosen = totalWordArray[Helper.getRandomNumber(0, totalWordArray.length)];
-    String wordChosen2 = totalWordArray[Helper.getRandomNumber(0, totalWordArray.length)];
-
-    public String[] wordChosenArray = {wordChosen, wordChosen2};
+    public String[] wordChosenArray = {
+            totalWordArray[Helper.getRandomNumber(0, totalWordArray.length)],
+            totalWordArray[Helper.getRandomNumber(0, totalWordArray.length)]
+    };
 
     private int lastLineUsed;
 
@@ -55,19 +55,24 @@ public class Words {
 
     private void addWordToField(Field board, String wordChosen){
         int xLocation = Helper.getRandomNumber(0, board.getSize());
-        int yLocation = Helper.getRandomNumber(0, board.getSize() - wordChosen.length()) ;
+        int yLocation = Helper.getRandomNumber(0, board.getSize() - wordChosen.length());
 
         if (Objects.equals(wordChosenArray[0], wordChosenArray[1])){
             wordChosenArray[0] = totalWordArray[Helper.getRandomNumber(0, totalWordArray.length)];
         }
+
         if (xLocation++ >= board.getSize()) {xLocation = 0;}
         if (xLocation == lastLineUsed) {xLocation++;}
 
         char[][] tempBoard = board.getBoard();
 
-        for (int i = 0; i < wordChosen.length(); i++) {
+        try {
+            for (int i = 0; i < wordChosen.length(); i++) {
+                tempBoard[xLocation][yLocation + i] = wordChosen.charAt(i);
+            }
 
-            tempBoard[xLocation][yLocation + i] = wordChosen.charAt(i);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            xLocation = Helper.getRandomNumber(0, board.getSize());
         }
 
         board.setBoard(tempBoard);
