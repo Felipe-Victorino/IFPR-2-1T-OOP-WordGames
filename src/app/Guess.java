@@ -1,73 +1,25 @@
 package app;
-import java.util.Objects;
 
 public class Guess {
 
-    String userGuess;
-    private String alreadyGuessed;
-    private int correctGuess = 0;
+    private String userGuess;
 
-    public Guess(Words word){
-        boolean guessValidity = false;
-        while (!guessValidity) {
-            String guess = this.userGuess(this);
-            guessValidity = this.verifyGuessField(word, guess);
-        }
+    public Guess(){
+        setUserGuess(promptUserGuess());
     }
 
-    public Guess(String wordChosen){
-        boolean guessValidity = false;
-        while (!guessValidity) {
-            String guess = this.userGuess(this);
-            guessValidity = this.verifyGuessWord(wordChosen, guess);
-        }
+    public String getUserGuess() {
+        return userGuess;
     }
 
-    public String userGuess(Guess guess) {
+    public void setUserGuess(String userGuess) {
+        this.userGuess = userGuess;
+    }
+
+    private String promptUserGuess() {
         System.out.print("Insert your guess: ");
-        return guess.userGuess = new Helper().getUserInputString();
+        return this.userGuess = new Helper().getUserInputString();
 
     }
 
-    // TODO: Separar os métodos a seguir para outras classes, passando a verificação para as classes respectivas (WordSearch e WordShuffle)
-    public boolean verifyGuessWord(String word, String guess) {
-        if (guess.equals("tip")) {
-            this.showHintWord(word);
-            return false;
-        } else if (Objects.equals(guess, word)) {
-            System.out.println("CORRECT");
-            return true;
-        } else {
-            System.out.println("INCORRECT");
-            return false;
-        }
-
-    }
-
-    public boolean verifyGuessField(Words word, String guess) {
-
-            if (guess.equals("tip")) {
-                this.showHintField(word);
-                return false;
-            } else if (Objects.equals(alreadyGuessed, guess)) {
-                System.out.println("ALREADY GUESSED");
-                return false;
-            } else if (Objects.equals(guess, word.wordChosenArray[0]) || Objects.equals(guess, word.wordChosenArray[1])) {
-                System.out.println("CORRECT");
-                alreadyGuessed = guess;
-                correctGuess++;
-                return correctGuess == 2;
-            } else {
-                System.out.println("INCORRECT");
-                return false;
-            }
-
-    }
-    public void showHintField(Words word){
-        System.out.printf("The first letter of one of the words is: %S%n", word.giveHint(new Helper().getRandomNumber(0,1)));
-    }
-
-    public void showHintWord(String word) {
-        System.out.printf("The first letter of one of the words is: %S%n", word.charAt(0));
-    }
 }

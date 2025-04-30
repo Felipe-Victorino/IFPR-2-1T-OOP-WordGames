@@ -6,6 +6,7 @@ import games.Descoberta.WordShuffle;
 public class Game {
 
     static int score = 0;
+    static int choice;
 
     public static void main(String[] args) {
         Game.gameLoop();
@@ -19,24 +20,27 @@ public class Game {
         while(loopState){
 
             Game.printMenu();
-
-            int choice = Integer.parseInt(new Helper().getUserInputString());
-
-            switch (choice){
-                case 1:
-                    WordSearch search = new WordSearch();
-                    score += search.score;
-                    break;
-                case 2:
-                    WordShuffle shuffle = new WordShuffle();
-                    score += shuffle.score;
-                    break;
-                case 3:
-                    loopState = false;
-                    break;
-                default:
-                    break;
+            try {
+                choice = Integer.parseInt(new Helper().getUserInputString());
+                switch (choice){
+                    case 1:
+                        WordSearch search = new WordSearch();
+                        score += search.score;
+                        break;
+                    case 2:
+                        WordShuffle shuffle = new WordShuffle();
+                        score += shuffle.score;
+                        break;
+                    case 3:
+                        loopState = false;
+                        break;
+                    default:
+                        break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.printf(choice + " isn't a number, try again");
             }
+
         }
     }
 

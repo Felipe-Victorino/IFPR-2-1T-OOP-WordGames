@@ -5,17 +5,6 @@ import java.util.Objects;
 
 public class Words {
 
-    public Words(){
-
-    }
-
-    public Words(Field field){
-        this.addWordToField(field, wordChosenArray[0]);
-        this.addWordToField(field, wordChosenArray[1]);
-        field.printField(field);
-
-    }
-
     private final String[] totalWordArray = {
             "perigee",
             "apogee",
@@ -38,6 +27,17 @@ public class Words {
 
     private int lastLineUsed;
 
+    public Words(){
+
+    }
+
+    public Words(Field field){
+        this.addWordToField(field, wordChosenArray[0]);
+        this.addWordToField(field, wordChosenArray[1]);
+        field.printField(field);
+
+    }
+
     public String shuffleWord(String wordChosen){
         char[] chosenArray = wordChosen.toCharArray();
 
@@ -53,19 +53,23 @@ public class Words {
 
 
     private void addWordToField(Field board, String wordChosen){
-        int xLocation = new Helper().getRandomNumber(0, board.size);
-        int yLocation = new Helper().getRandomNumber(0, board.size - wordChosen.length()) ;
+        int xLocation = new Helper().getRandomNumber(0, board.getSize());
+        int yLocation = new Helper().getRandomNumber(0, board.getSize() - wordChosen.length()) ;
 
         if (Objects.equals(wordChosenArray[0], wordChosenArray[1])){
             wordChosenArray[0] = totalWordArray[new Helper().getRandomNumber(0, totalWordArray.length)];
         }
-        if (xLocation++ >= board.size) {xLocation = 0;}
+        if (xLocation++ >= board.getSize()) {xLocation = 0;}
         if (xLocation == lastLineUsed) {xLocation++;}
 
+        char[][] tempBoard = board.getBoard();
 
         for (int i = 0; i < wordChosen.length(); i++) {
-            board.board[xLocation][yLocation + i] = wordChosen.charAt(i);
+
+            tempBoard[xLocation][yLocation + i] = wordChosen.charAt(i);
         }
+
+        board.setBoard(tempBoard);
 
         this.lastLineUsed = xLocation;
     }

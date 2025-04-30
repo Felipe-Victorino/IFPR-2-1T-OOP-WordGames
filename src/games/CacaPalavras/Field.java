@@ -2,8 +2,20 @@ package games.CacaPalavras;
 import app.Helper;
 public class Field {
 
-    public int size = 15;
-    public char[][] board = new char[size][size];
+    private final int size = 15;
+    private char[][] board = new char[size][size];
+
+    public int getSize() {
+        return size;
+    }
+
+    public char[][] getBoard() {
+        return board;
+    }
+
+    public void setBoard(char[][] board) {
+        this.board = board;
+    }
 
     public void fillFieldWithNoise(Field board){
         System.out.println("Generating Field...");
