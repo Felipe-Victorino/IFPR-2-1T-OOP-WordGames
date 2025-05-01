@@ -55,6 +55,7 @@ public class Words {
     }
 
     public Words(Field field){
+        this.hardModeSetArray(new Game().getHardMode());
         this.addWordToField(field, wordChosenArray[0]);
         this.addWordToField(field, wordChosenArray[1]);
         field.printField(field);

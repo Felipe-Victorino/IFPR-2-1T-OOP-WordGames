@@ -10,19 +10,16 @@ public class Game {
     // TODO: Listagem de palavras encontradas: Criar um placar que exibe todas as palavras encontradas pelo usuário até o momento
 
     private int score = 0;
-    static int choice;
-    private boolean hardMode;
+    private static boolean hardMode;
 
     public void incrementScore(){
         this.score++;
     }
-
-    public void setHardMode(boolean hardMode) {
-        this.hardMode = hardMode;
-    }
-
     public boolean getHardMode(){
         return hardMode;
+    }
+    public void setHardMode(boolean hardModeChoice) {
+        hardMode = hardModeChoice;
     }
 
     public int getScore() {
@@ -60,7 +57,7 @@ public class Game {
 
             this.printMenu();
             try {
-                choice = Integer.parseInt(Helper.getUserInputString());
+                int choice = Integer.parseInt(Helper.getUserInputString());
 
                 switch (choice){
                     case 0:
@@ -106,4 +103,5 @@ public class Game {
         System.out.print("> ");
 
     }
+
 }

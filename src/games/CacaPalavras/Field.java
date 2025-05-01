@@ -1,13 +1,29 @@
 package games.CacaPalavras;
+import app.Game;
+
 import static app.Helper.getRandomNumber;
 
 public class Field {
 
     private int size;
-    private char[][] board = new char[size][size];
+    private char[][] board;
+
+    public Field(){
+        hardModeChecker();
+        setBoard(new char[size][size]);
+
+    }
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    private void hardModeChecker(){
+        if (new Game().getHardMode()){
+            setSize(25);
+        } else {
+            setSize(15);
+        }
     }
 
     public int getSize() {
