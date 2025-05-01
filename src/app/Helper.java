@@ -14,4 +14,6 @@ public class Helper {
     public static int getRandomNumber(int numa, int numb){
         return rd.nextInt(numa, numb);
     }
+
+    public static char getUserInputChar(){return sc.nextLine().charAt(0); }
 }

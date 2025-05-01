@@ -1,11 +1,24 @@
 package app;
 import games.CacaPalavras.Field;
 
-import java.util.Objects;
-
 public class Words {
 
-    private final String[] totalWordArray = {
+    private final String[] easyWordArray = {
+            "bread",
+            "violin",
+            "piglet",
+            "trumpet",
+            "chalk",
+            "zebra",
+            "giraffe",
+            "elephant",
+            "flower",
+            "xzyzy",
+            "sesame",
+            "windy"
+    };
+
+    private final String[] hardWordArray = {
             "perigee",
             "apogee",
             "xylophone",
@@ -18,13 +31,22 @@ public class Words {
             "magnetic",
             "scalpel",
             "oregano",
-            "rosemary"
+            "rosemary",
+            "usb",
+            "hdmi"
     };
 
-    public String[] wordChosenArray = {
-            totalWordArray[Helper.getRandomNumber(0, totalWordArray.length)],
-            totalWordArray[Helper.getRandomNumber(0, totalWordArray.length)]
-    };
+    public String[] wordChosenArray = new String[2];
+
+    public void hardModeSetArray(boolean isHardModeOn){
+        if (isHardModeOn) {
+            wordChosenArray[0] = hardWordArray[Helper.getRandomNumber(0, hardWordArray.length)];
+            wordChosenArray[1] = hardWordArray[Helper.getRandomNumber(0, hardWordArray.length)];
+        } else {
+            wordChosenArray[0] = easyWordArray[Helper.getRandomNumber(0, hardWordArray.length)];
+            wordChosenArray[1] = easyWordArray[Helper.getRandomNumber(0, hardWordArray.length)];
+        }
+    }
 
     private int lastLineUsed;
 
@@ -57,9 +79,6 @@ public class Words {
         int xLocation = Helper.getRandomNumber(0, board.getSize());
         int yLocation = Helper.getRandomNumber(0, board.getSize() - wordChosen.length());
 
-        if (Objects.equals(wordChosenArray[0], wordChosenArray[1])){
-            wordChosenArray[0] = totalWordArray[Helper.getRandomNumber(0, totalWordArray.length)];
-        }
         if (xLocation == lastLineUsed) {xLocation++;}
 
         char[][] tempBoard = board.getBoard();

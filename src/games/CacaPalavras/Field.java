@@ -3,8 +3,12 @@ import static app.Helper.getRandomNumber;
 
 public class Field {
 
-    private final int size = 15;
+    private int size;
     private char[][] board = new char[size][size];
+
+    public void setSize(int size) {
+        this.size = size;
+    }
 
     public int getSize() {
         return size;

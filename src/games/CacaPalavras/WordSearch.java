@@ -9,6 +9,7 @@ public class WordSearch {
     private String alreadyGuessed;
     private int correctGuess = 0;
 
+
     public WordSearch(){
         this.gameStart();
     }
