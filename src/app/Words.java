@@ -38,16 +38,6 @@ public class Words {
 
     public String[] wordChosenArray = new String[2];
 
-    public void hardModeSetArray(boolean isHardModeOn){
-        if (isHardModeOn) {
-            wordChosenArray[0] = hardWordArray[Helper.getRandomNumber(0, hardWordArray.length)];
-            wordChosenArray[1] = hardWordArray[Helper.getRandomNumber(0, hardWordArray.length)];
-        } else {
-            wordChosenArray[0] = easyWordArray[Helper.getRandomNumber(0, hardWordArray.length)];
-            wordChosenArray[1] = easyWordArray[Helper.getRandomNumber(0, hardWordArray.length)];
-        }
-    }
-
     private int lastLineUsed;
 
     public Words(){
@@ -60,6 +50,16 @@ public class Words {
         this.addWordToField(field, wordChosenArray[1]);
         field.printField(field);
 
+    }
+
+    public void hardModeSetArray(boolean isHardModeOn){
+        if (isHardModeOn) {
+            wordChosenArray[0] = hardWordArray[Helper.getRandomNumber(0, hardWordArray.length)];
+            wordChosenArray[1] = hardWordArray[Helper.getRandomNumber(0, hardWordArray.length)];
+        } else {
+            wordChosenArray[0] = easyWordArray[Helper.getRandomNumber(0, hardWordArray.length)];
+            wordChosenArray[1] = easyWordArray[Helper.getRandomNumber(0, hardWordArray.length)];
+        }
     }
 
     public String shuffleWord(String wordChosen){

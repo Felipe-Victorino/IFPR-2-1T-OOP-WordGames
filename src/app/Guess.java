@@ -8,6 +8,12 @@ public class Guess {
         setUserGuess(promptUserGuess());
     }
 
+    private String promptUserGuess() {
+        System.out.print("Insert your guess: ");
+        return this.userGuess = Helper.getUserInputString();
+
+    }
+
     public String getUserGuess() {
         return userGuess;
     }
@@ -15,11 +21,4 @@ public class Guess {
     public void setUserGuess(String userGuess) {
         this.userGuess = userGuess;
     }
-
-    private String promptUserGuess() {
-        System.out.print("Insert your guess: ");
-        return this.userGuess = Helper.getUserInputString();
-
-    }
-
 }

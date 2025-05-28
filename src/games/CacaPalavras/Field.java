@@ -14,10 +14,6 @@ public class Field {
 
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
     private void hardModeChecker(){
         if (new Game().getHardMode()){
             setSize(25);
@@ -26,17 +22,6 @@ public class Field {
         }
     }
 
-    public int getSize() {
-        return size;
-    }
-
-    public char[][] getBoard() {
-        return board;
-    }
-
-    public void setBoard(char[][] board) {
-        this.board = board;
-    }
 
     public void fillFieldWithNoise(Field board){
         System.out.println("Generating Field...");
@@ -56,4 +41,19 @@ public class Field {
         }
     }
 
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public char[][] getBoard() {
+        return board;
+    }
+
+    public void setBoard(char[][] board) {
+        this.board = board;
+    }
 }
