@@ -4,9 +4,7 @@ import games.CacaPalavras.WordSearch;
 import games.Descoberta.WordShuffle;
 
 public class Game {
-    // TODO: Dificuldade ajustável: Permitir que o usuário escolha o nível de dificuldade, variando o tamanho do tabuleiro e o número de palavras escondidas.
     // TODO: Dicas progressivas: Permitir que o jogador peça mais dicas, como revelar uma letra adicional da palavra escondida.
-    // TODO: Modo infinito: Gerar novos tabuleiros automaticamente após cada vitória, permitindo que o jogador continue jogando indefinidamente.
     // TODO: Listagem de palavras encontradas: Criar um placar que exibe todas as palavras encontradas pelo usuário até o momento
 
     private int score = 0;
